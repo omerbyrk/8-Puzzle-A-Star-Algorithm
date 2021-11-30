@@ -74,24 +74,18 @@ namespace Puzzle
         {
             if (mParent == null)
             {
-                // We are at the first state - we assume we have been asked to be at this state, so no cost.
                 mCostg = 0;
             }
             else
             {
-                // Here, state transition cost is 1 unit. Since transition from one state to another is by moving he tile one step.
                 mCostg = mParent.mCostg + 1;
             }
 
-            // Heuristic cost
             mCosth = GetManhattanDistanceCost();
 
             mCostf = mCosth + mCostg;
         }
 
-        /// <summary>
-        /// Heuristic - Manhattan distance
-        /// </summary>
         private int GetManhattanDistanceCost()
         {
             int heuristicCost = 0;
@@ -149,7 +143,6 @@ namespace Puzzle
 
         public bool IsFinalState()
         {
-            // If all tiles are at correct position, we are into final state.
             return mCosth == 0;
         }
 
@@ -185,7 +178,6 @@ namespace Puzzle
                 int[] nodes = new int[mNodes.Length];
                 Array.Copy(mNodes, nodes, mNodes.Length);
 
-                // Get new state nodes
                 Swap(nodes, mSpaceIndex, position);
 
                 return new State(this, nodes);
@@ -214,7 +206,6 @@ namespace Puzzle
             {
                 case Direction.Up:
                     {
-                        // Can not move up if we are at the top
                         if (currentY != 0)
                         {
                             newX = currentX;
@@ -225,7 +216,6 @@ namespace Puzzle
 
                 case Direction.Down:
                     {
-                        // Can not move down if we are the lowest level
                         if (currentY < (gridX - 1))
                         {
                             newX = currentX;
@@ -236,7 +226,6 @@ namespace Puzzle
 
                 case Direction.Left:
                     {
-                        // Can not move left if we are at the left most position
                         if (currentX != 0)
                         {
                             newX = currentX - 1;
@@ -247,7 +236,6 @@ namespace Puzzle
 
                 case Direction.Right:
                     {
-                        // Can not move right if we are at the right most position
                         if (currentX < (gridX - 1))
                         {
                             newX = currentX + 1;
@@ -319,14 +307,12 @@ namespace Puzzle
 
                 stateCount++;
 
-                // Is this final state
                 if (currentState.IsFinalState())
                 {
                     EndMeasure(stateCount);
                     break;
                 }
 
-                // Look into next state
                 currentState.GetNextStates(ref nextStates);
 
                 if (nextStates.Count > 0)
@@ -343,24 +329,20 @@ namespace Puzzle
 
                         if (openStates.Contains(nextState.GetStateCode()))
                         {
-                            // We already have same state in the open queue. 
                             openState = openStateQueue.Find(nextState, out openStateIndex);
 
                             if (openState.IsCostlierThan(nextState))
                             {
-                                // We have found a better way to reach at this state. Discard the costlier one
                                 openStateQueue.Remove(openStateIndex);
                                 openStateQueue.Enqueue(nextState);
                             }
                         }
                         else
                         {
-                            // Check if state is in closed queue
                             String stateCode = nextState.GetStateCode();
 
                             if (closedQueue.TryGetValue(stateCode, out closedState))
                             {
-                                // We have found a better way to reach at this state. Discard the costlier one
                                 if (closedState.IsCostlierThan(nextState))
                                 {
                                     closedQueue.Remove(stateCode);
@@ -369,7 +351,6 @@ namespace Puzzle
                             }
                         }
 
-                        // Either this is a new state, or better than previous one.
                         if (openState == null && closedState == null)
                         {
                             openStateQueue.Enqueue(nextState);
@@ -383,7 +364,6 @@ namespace Puzzle
 
             if (currentState != null && !currentState.IsFinalState())
             {
-                // No solution
                 currentState = null;
             }
 
@@ -406,8 +386,6 @@ namespace Puzzle
         {
             if (state != null)
             {
-                // We have a solution for this puzzle
-                // Backtrac to the root of the path in the tree
                 Stack<State> path = new Stack<State>();
 
                 while (state != null)
@@ -418,13 +396,11 @@ namespace Puzzle
 
                 while (path.Count > 0)
                 {
-                    // Move one by one down the path
                     OnStateChanged(path.Pop().GetState(), path.Count == 0);
                 }
             }
             else
             {
-                // No solution
                 OnStateChanged(null, true);
             }
         }
