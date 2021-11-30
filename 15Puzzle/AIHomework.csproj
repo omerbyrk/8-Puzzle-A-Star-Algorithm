@@ -72,7 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Strategy.cs" />
+    <Compile Include="PuzzleSolver.cs" />
     <Compile Include="PuzzleUI.cs">
       <SubType>Form</SubType>
     </Compile>

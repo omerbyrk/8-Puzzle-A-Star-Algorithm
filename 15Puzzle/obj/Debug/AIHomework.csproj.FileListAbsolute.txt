@@ -8,3 +8,4 @@ C:\Users\Ömer Bayrak\source\repos\8-Puzzle-A-Star-Algorithm\15Puzzle\obj\Debug\
 C:\Users\Ömer Bayrak\source\repos\8-Puzzle-A-Star-Algorithm\15Puzzle\obj\Debug\AIHomework.csproj.CoreCompileInputs.cache
 C:\Users\Ömer Bayrak\source\repos\8-Puzzle-A-Star-Algorithm\15Puzzle\obj\Debug\15Puzzle.exe
 C:\Users\Ömer Bayrak\source\repos\8-Puzzle-A-Star-Algorithm\15Puzzle\obj\Debug\15Puzzle.pdb
+C:\Users\Ömer Bayrak\source\repos\8-Puzzle-A-Star-Algorithm\15Puzzle\obj\Debug\AIHomework.csproj.AssemblyReference.cache

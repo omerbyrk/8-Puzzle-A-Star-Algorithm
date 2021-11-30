@@ -12,8 +12,7 @@ namespace Puzzle
 {
     public partial class PuzzleUI : Form
     {
-        private Strategy strategy;
-        private Heuristic heuristic;
+        private PuzzleSolver strategy;
         private LinearShuffle<int> shuffle;
         private WindowsFormsSynchronizationContext syncContext;
         Dictionary<int, Button> uiButtons;
@@ -33,8 +32,7 @@ namespace Puzzle
             initialState = new int[] { 8, 7, 2, 4, 6, 3, 1, -1, 5 };
 
             shuffle = new LinearShuffle<int>();
-            strategy = new Strategy();
-            heuristic = Heuristic.ManhattanDistance;
+            strategy = new PuzzleSolver();
             strategy.OnStateChanged += OnStrategyStateChanged;
             strategy.OnPuzzleSolved += OnPuzzleSolved;
 
@@ -55,12 +53,7 @@ namespace Puzzle
             progressBar.Visible = false;
         }
 
-        private void SwapValues(int x, int y)
-        {
-            int temp = initialState[x];
-            initialState[x] = initialState[y];
-            initialState[y] = temp;
-        }
+
 
         private void OnStrategyStateChanged(int[] state, bool isFinal)
         {
@@ -121,7 +114,7 @@ namespace Puzzle
 
         private void StartSolvingPuzzle()
         {
-            strategy.Solve(initialState, heuristic);
+            strategy.Solve(initialState);
 
             progressBar.Visible = true;
             this.Cursor = Cursors.WaitCursor;
