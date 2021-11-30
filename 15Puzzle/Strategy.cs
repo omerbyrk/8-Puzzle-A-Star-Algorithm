@@ -328,7 +328,7 @@ namespace Puzzle
     internal delegate void StateChanged(int[] currentState, bool isFinal);
     internal delegate void PuzzleSolution(int steps, int time, int stateExamined);
 
-    internal sealed class PuzzleStrategy
+    internal sealed class Strategy
     {
         #region Fields
 
@@ -340,7 +340,7 @@ namespace Puzzle
 
         #region Methods
 
-        internal PuzzleStrategy()
+        internal Strategy()
         {
             mStopWatch = new Stopwatch();
         }

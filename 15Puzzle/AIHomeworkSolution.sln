@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIHomework", "AIHomework.csproj", "{4FB5C536-C402-40A8-AA63-4768713C2212}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FB5C536-C402-40A8-AA63-4768713C2212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB5C536-C402-40A8-AA63-4768713C2212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB5C536-C402-40A8-AA63-4768713C2212}.Debug|x86.ActiveCfg = Debug|x86
+		{4FB5C536-C402-40A8-AA63-4768713C2212}.Debug|x86.Build.0 = Debug|x86
+		{4FB5C536-C402-40A8-AA63-4768713C2212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB5C536-C402-40A8-AA63-4768713C2212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB5C536-C402-40A8-AA63-4768713C2212}.Release|x86.ActiveCfg = Release|x86
+		{4FB5C536-C402-40A8-AA63-4768713C2212}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF985F1F-C539-46F3-AF7A-7A73B4327895}
+	EndGlobalSection
+EndGlobal
